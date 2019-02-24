@@ -1,0 +1,42 @@
+{
+    "api":{
+        "bodyParser":{
+            "json":{
+                "type": "application / json",
+                "limit": "50mb", 
+                "extended": true
+            },
+            "urlencoded":{
+                "limit": "50mb",
+                "extended": false
+            },
+            "raw":{ 
+                "type": "application/octet-stream", 
+                "limit": "50mb", 
+                "extended": true
+            }
+        }
+    },
+    "db":{
+        "mysql":{
+            "client": "mysql",
+            "connection": {
+            "host" : "eyenature.ddns.net",
+            "user" : "natureusr",
+            "port": 3306,
+            "password" : "rOYaNDmATTp@SSW0RD",
+            "database" : "naturedb"
+            }
+        },
+        "mysqlLocal":{
+            "client": "mysql",
+            "connection": {
+                "host" : "localhost",
+                "user" : "natureusr",
+                "port": 3306,
+                "password" : "1234",
+                "database" : "naturedb"
+            }
+        }
+    }
+}

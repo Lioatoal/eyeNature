@@ -1,0 +1,210 @@
+<!-- CREATE Modal -->
+<div class="modal fade" id="inventoryCreateModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!-- DELETE Modal -->
+<div class="modal fade" id="inventoryDelModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">確定刪除角色</h4>
+            </div>
+            <div class="modal-body">
+                <table id="inventoryDelTable" class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>類別</th>
+                            <th>名稱</th>
+                            <th>庫存數量</th>
+                            <th>所需數量</th>
+                            <th>庫存地</th>
+                            <th>成品</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button id="delSubmit" class="btn btn-info" type="submit">確認</button>
+                <button id="delCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EDIT Module-->
+<div class="modal fade modalfar" id="inventoryEditModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--Add quantity Module-->
+
+<div class="modal fade" id="inventoryAddQuantityModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">新增物料庫存</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addQuantity" class="form-horizontal" role="form">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtAddQuantity'>數量：</label>
+                        <div class="col-lg-8">
+                            <input id="txtAddQuantity" name="txtAddQuantity" type="number" class="form-control input-sm" min="0" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtAddRemark'>備註：</label>
+                        <div class="col-lg-8">
+                            <textarea id="txtAddRemark" name="txtAddRemark" class="form-control input-sm" rows="5"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="addSubmit" class="btn btn-info" type="submit" form="addQuantity">確認</button>
+                <button id="addCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--subtract quantity Module-->
+<div class="modal fade" id="inventorySubtractQuantityModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">減少物料庫存</h4>
+            </div>
+            <div class="modal-body">
+                <form id="subtractQuantity" class="form-horizontal" role="form">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtSubtractQuantity'>數量：</label>
+                        <div class="col-lg-8">
+                            <input id="txtSubtractQuantity" name="txtSubtractQuantity" type="number" class="form-control input-sm" min="0" />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtSubtractRemark'>備註：</label>
+                        <div class="col-lg-8">
+                            <textarea id="txtSubtractRemark" name="txtSubtractRemark" class="form-control input-sm" rows="5"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="subtractSubmit" class="btn btn-info" type="submit" form="subtractQuantity">確認</button>
+                <button id="subtractCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Purchase Module-->
+<div class="modal fade" id="inventoryPurchaseModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!--Sales Module-->
+<div class="modal fade" id="inventorySalesModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<!--Add Inventory Type Module-->
+<div class="modal fade" id="addInventoryTypeModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">新增類別</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addInventoryType" class="form-horizontal" role="form">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtAddInventoryType'>物料類別：</label>
+                        <div class="col-lg-8">
+                            <input id="txtAddInventoryType" name="txtAddInventoryType" type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-8">
+                    <div id="addTypeMsgArea" class="msgArea" style="text-align: left"></div>
+                </div>
+                <button id="addTypeSubmit" class="btn btn-info" type="submit" form="addInventoryType">確認</button>
+                <button id="addTypeCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Add Inventory Comb Module-->
+<div class="modal fade" id="addInventoryCombModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">新增成品</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addInventoryComb" class="form-horizontal" role="form">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtAddInventoryComb'>物料成品：</label>
+                        <div class="col-lg-8">
+                            <input id="txtAddInventoryComb" name="txtAddInventoryComb" type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-8">
+                    <div id="addCombMsgArea" class="msgArea" style="text-align: left"></div>
+                </div>
+                <button id="addCombSubmit" class="btn btn-info" type="submit" form="addInventoryComb">確認</button>
+                <button id="addCombCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Add Inventory Location Module-->
+<div class="modal fade" id="addInventoryLocationModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">新增庫存地</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addInventoryLocation" class="form-horizontal" role="form">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtAddInventoryLocation'>物料庫存地：</label>
+                        <div class="col-lg-8">
+                            <input id="txtAddInventoryLocation" name="txtAddInventoryLocation" type="text" class="form-control input-sm" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-8">
+                    <div id="addLocationMsgArea" class="msgArea" style="text-align: left"></div>
+                </div>
+                <button id="addLocationSubmit" class="btn btn-info" type="submit" form="addInventoryLocation">確認</button>
+                <button id="addLocationCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

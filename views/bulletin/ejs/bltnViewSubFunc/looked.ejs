@@ -1,0 +1,10 @@
+<div class="col-md-4 col-md-offset-1 lookCheck">
+    <% for(var i in willlook) {%>
+        <img src="<%= willlook[i].imgr%>" title="<%= willlook[i].name%>" class="img-circle" />
+    <%}%>
+</div>
+<div class="col-md-4 col-md-offset-2 lookCheck">
+    <% for(var i in looked) {%>
+    <img src="<%= looked[i].imgr%>" title="<%= looked[i].name%>" class="img-circle" />
+    <%}%>
+</div>

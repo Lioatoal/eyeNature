@@ -1,0 +1,64 @@
+<!--Sales Inventory Module-->
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">物料銷貨</h4>
+    </div>
+    <div class="modal-body">
+        <form id="salesMaterial" class="form-horizontal" role="form">
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSalesName'>品項名稱：</label>
+                <div class="col-lg-8 has-feedback">
+                    <input id="txtSalesName" name="txtSalesName" type="text" class="form-control input-sm" value="<%=inventory.name %>" disabled/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSalesLocation'>庫存地：</label>
+                <div class="col-lg-8">
+                    <select id="txtEditSalesLocation" name="txtEditSalesLocation" class="form-control input-sm" disabled>
+                        <option value="<%= inventory.location_id%>" selected>
+                            <%= inventory.l_name%>
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSalesOriQuantity'>庫存數量：</label>
+                <div class="col-lg-8 has-feedback">
+                    <input id="txtSalesOriQuantity" name="txtSalesOriQuantity" type="number" class="form-control input-sm" value="<%=inventory.quantity %>"
+                        disabled/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSalesOriPrice'>定價：</label>
+                <div class="col-lg-8 has-feedback">
+                    <input id="txtSalesOriPrice" name="txtSalesOriPrice" type="number" class="form-control input-sm" value="<%=inventory.price %>"
+                        disabled/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSalesVendor'>供應廠商：</label>
+                <div class="col-lg-8 has-feedback">
+                    <input id="txtSalesVendor" name="txtPurchaseVendor" type="text" class="form-control input-sm" value="<%=inventory.company %>"
+                        disabled/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSalesQuantity'>銷出數量：</label>
+                <div class="col-lg-8">
+                    <input id="txtSalesQuantity" name="txtSalesQuantity" type="number" class="form-control input-sm" min="0" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSalesRemark'>異動備註：</label>
+                <div class="col-lg-8">
+                    <textarea id="txtSalesRemark" name="txtSalesRemark" class="form-control input-sm" rows="5" placeholder="請註明銷出對象與事由"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button id="salesSubmit" class="btn btn-info" type="submit" form="salesMaterial">確認</button>
+        <button id="salesCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+    </div>
+</div>

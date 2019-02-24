@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../../partials/head.html %>
+    <!-- User define CSS -->
+    <link href="public/assets/css/mVendor.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div>
+        <% include ../../../partials/header.html %>
+            <% include ./mVendorModal.html %>
+            <div id="page-wrapper">
+                <div id="Header" class="row">
+                    <div class="col-md-4">
+                        <strong style="font-size:32px">廠&nbsp;商&nbsp;管&nbsp;理</strong>
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+                <hr>
+                <div id="Main">
+                        <% include ./mVendorSearchForm.html %>
+                        <div class="row R1">
+                            <div class="col-md-12">
+                            <% if(permission) {%>
+                                <% if(permission.CREATE) {%>
+                                <button id="add" class="btn btn-info" type="button" data-toggle="modal" data-target="#vendorCreateModal">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                </button>
+                                <%}%>
+                                <% if(permission.DELETE) {%>
+                                <button id="delete" class="btn btn-danger" type="button" data-toggle="modal" data-target="#vendorDelModal">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </button>
+                                <%}%>
+                                <% if(permission.IMPORT) {%>
+                                <label class="btn btn-warning">
+                                    <input id="import" style="display:none;" type="file">
+                                    <i class="glyphicon glyphicon-file"></i>上傳檔案
+                                </label>
+                                <%}%>
+                                <% if(permission.EXPORT) {%>
+                                <label class="btn btn-warning">
+                                    <input id="export" style="display:none;">
+                                    <i class="glyphicon glyphicon-file"></i>下載檔案
+                                </label>
+                                <%}%>
+                            <%}%>
+                            </div>
+                        </div>
+                        <table id="vendorTable" class="table table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        <input type="checkbox" name="select_all" value="1" id="select-all">
+                                    </th>
+                                    <th>種類</th>
+                                    <th>名稱</th>
+                                    <th>連絡人</th>
+                                    <th>室內電話</th>
+                                    <th>分機</th>
+                                    <th>手機號碼</th>
+                                    <th>傳真</th>
+                                    <th>合作中</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+    </div>
+
+    <script src='views/personnel/vendor/JS/JSmVendor.js'></script>
+</body>
+
+</html>

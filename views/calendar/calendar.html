@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head.html %>
+    <!-- User define CSS -->
+    <link href="public/assets/css/task.css" rel="stylesheet" type="text/css" >
+    <!-- Jquery UI -->
+    <link href="public/jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet" type="text/css" >
+    <link href="public/jquery-ui-1.12.1/jquery-ui.theme.min.css" rel="stylesheet" type="text/css" >
+    <!-- Fullcalendar -->
+    <link href='public/fullcalendar/fullcalendar.min.css' rel='stylesheet' type='text/css'/>
+    <link href="public/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+
+    <!-- Javascript -->
+    <script src='public/fullcalendar/lib/moment.min.js'></script>
+    <script src="public/fullcalendar/fullcalendar.min.js"></script>
+
+</head>
+<body>
+
+    <div>
+
+        <% include ../partials/header.html %>
+
+
+
+        <div id="page-wrapper">
+
+            <div id='calendar'></div>
+
+            <div class="pop-layer1" style="display: none;">
+            <div class="pop-layer2">
+            <div class="pop-layer3">
+            <div class="pop-layer4">
+            <div class="pop-layer5">
+                <% include ./dayList.html %>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="row" style="padding-top:10px;padding-bottom:15px;">
+                <div class="col-md-1">
+                    <button id="addTask" class="btn btn-default btn-xs ui-state-default" type="button" style="width:100%;"> <i class="material-icons" style="font-size:30px;">add</i></button>
+                </div>
+                <div class="col-md-2 upload-btn-wrapper">
+                    <button id="uploadTask" class="btn btn-default btn-xs ui-state-default" type="button" style="width:100%;">
+                    <input type="file">
+                    <i class="material-icons" style="font-size:30px;">file_upload</i>
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button id="downloadTask" class="btn btn-default btn-xs ui-state-default" type="button" style="width:100%;"> <i class="material-icons" style="font-size:30px;">file_download</i></button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var dayList = <%- dayList%>;
+
+    </script>
+    <script src='views/calendar/calendarView.js'></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<% include ./headerModal.html %>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav id="menuBar" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="bulletin">eye上大自然ERP系統</a>
+            </div>
+            <!-- navbar-menu -->
+            <ul class="nav navbar-top-links navbar-right">
+                <ul class="sf-menu nav">
+                    <li>
+                        <a id='userinfo' title="<%=userInfo.name %>">
+                            <img class="userImage img-circle" src="<%=userInfo.imgr %>">
+                        </a>
+                    </li>
+                    <% for(var i=0; i<menus.links.length; i++) {%>
+                        <li>
+                            <a href="<%= menus.links[i].href %>">
+                                <i class="<%= menus.links[i].css %>"></i>
+                                <%= menus.links[i].text %>
+                            </a>
+                        </li>
+                        <% } %>
+                </ul>
+            </ul>
+            <!-- navbar-Side Bar -->
+            <div id="sideBar" class="sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <% for(var i=0; i<sidebar.length; i++) {%>
+                            <% if(userInfo.permHead[sidebar[i].head]) {%>
+                                <li>
+                                    <a href="<%= sidebar[i].href %>" style="color:#642100;">
+                                        <i class="<%= sidebar[i].css %>"></i>
+                                        <%= sidebar[i].text %>
+                                    </a>
+                                    <%if (sidebar[i].second.length > 0) {%>
+                                        <ul class="nav nav-second-level collapse">
+                                            <% for(var j=0; j<sidebar[i].second.length; j++) {%>
+                                                <%if(userInfo.permission[sidebar[i].second[j].head]) {%>
+                                                    <li>
+                                                        <a href="<%= sidebar[i].second[j].href %>" style="color:#642100;">
+                                                            <i class="<%= sidebar[i].second[j].css %>"></i>
+                                                            <%= sidebar[i].second[j].text %>
+                                                        </a>
+                                                    </li>
+                                                    <%}%>
+                                                        <% } %>
+                                        </ul>
+                                        <% } %>
+                                </li>
+                                <%}%>
+                                    <% } %>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+    </div>
+    <script>
+        $('#userinfo').on('click', function () {
+            $.get('/about', { id: '<%=userInfo.email%>', roleID: '<%= userInfo.roleID%>' }, function (res) {
+                console.log('<%= userInfo.roleID %>');
+                if ('<%= userInfo.roleID %>' == '5' || '<%= userInfo.roleID %>' == '6') {
+                    $('#vendorPersonalModal .modal-content').html(res);
+                    $("#vendorPersonalModal").modal();
+                } else {
+                    $('#employeePersonalModal .modal-content').html(res);
+                    $('#txtEditPersonalBirth').datetimepicker({
+                        weekStart: 7,
+                        maxViewMode: 3,
+                        language: "zh-TW",
+                        daysOfWeekHighlighted: [0, 6],
+                        startView: 2,
+                        autoclose: 1,
+                        minView: 2,
+                    });
+                    $('#employeePersonalModal').modal();
+                }
+                var editID = [<%=userInfo.relatedID %>];
+                console.log('edit:' + editID);
+                $('#employeePersonalEdit').on('submit', function (event) {
+                    var postData = {
+                        head: 'edit',
+                        txtEditID: editID,
+                        name: $('#txtEditPersonalName').val(),
+                        nickname: $('#txtEditPersonalNickname').val(),
+                        facebook: $('#txtEditPersonalFacebook').val(),
+                        email: $('#txtEditPersonalEmail').val(),
+                        line: $('#txtEditPersonalLine').val(),
+                        wechat: $('#txtEditPersonalWechat').val(),
+                        birth: $('#txtEditPersonalBirth').val(),
+                        bloodtype: $('#txtEditPersonalBloodtype').val(),
+                        mainphone: $('#txtEditPersonalMainPhone').val(),
+                        secondaryphone: $('#txtEditPersonalSecondaryPhone').val(),
+                        address: $('#txtEditPersonalAddr').val(),
+                        idcardno: $('#txtEditPersonalIdcardno').val(),
+                        gender: $("input[name=txtEditPersonalGender]:checked").val(),
+                        stature: $('#txtEditPersonalStature').val(),
+                        weight: $('#txtEditPersonalWeight').val(),
+                        edu_id: $('#txtEditPersonalEdu').val(),
+                        school: $('#txtEditPersonalSchool').val(),
+                        nextofkin: $('#txtEditPersonalNextofkin').val(),
+                        nextofkin_phone: $('#txtEditPersonalNextofkinPhone').val(),
+                        bankcode: $('#txtEditPersonalBankcode').val(),
+                        bankacct: $('#txtEditPersonalBankacct').val(),
+                        bankname: $('#txtEditPersonalBankname').val(),
+                        iswork: $("#txtEditPersonalIswork")[0].checked,
+                        remark: $('#txtEditPersonalRemark').val()
+                    }
+                    $.post('/mPersonalEmployeeModify', {
+                        postData: JSON.stringify(postData)
+                    }, function (error) {
+                        if (error.msg) {
+                            $('#editMsgArea').removeClass('text-success').addClass('text-danger').text('個人資料編輯失敗:' + error.msg)
+                        } else {
+                            $('#editMsgArea').removeClass('text-danger').addClass('text-success').text('個人資料編輯成功')
+                            setTimeout(function () {
+                                $('#editMsgArea').empty()
+                                $('#employeePersonalModal').modal("hide")
+                            }, 1500);
+                        }
+                    })
+                    event.preventDefault();
+                })
+                $('#vendorPersonalEdit').on('submit', function (event) {
+                    var postData = {
+                        head: 'edit',
+                        txtEditID: editID,
+                        company: $('#txtEditPersonalCompany').val(),
+                        type_id: $('#txtEditPersonalType').val(),
+                        name: $('#txtEditPersonalName').val(),
+                        title: $('#txtEditPersonalTitle').val(),
+                        jobagent: $('#txtEditEditPersonalAgent').val(),
+                        phone: $('#txtEditPersonalPhone').val(),
+                        extension: $('#txtEditPersonalExtension').val(),
+                        cellphone: $('#txtEditPersonalCellphone').val(),
+                        fax: $('#txtEditPersonalFax').val(),
+                        facebook: $('#txtEditPersonalFacebook').val(),
+                        email: $('#txtEditPersonalEmail').val(),
+                        line: $('#txtEditPersonalLine').val(),
+                        wechat: $('#txtEditPersonalWechat').val(),
+                        address: $('#txtEditPersonalAddr').val(),
+                        bankcode: $('#txtEditPersonalBankcode').val(),
+                        bankaccount: $('#txtEditPersonalBankacct').val(),
+                        bankname: $('#txtEditPersonalBankname').val(),
+                        iswork: $('#txtEditPersonalIswork')[0].checked,
+                        remark: $('#txtEditPersonalRemark').val(),
+                    }
+                    $.post('/mPersonalVendorModify', {
+                        postData: JSON.stringify(postData)
+                    }, function (error) {
+                        if (error.msg) {
+                            $('#editMsgArea').removeClass('text-success').addClass('text-danger').text('個人資料編輯失敗:' + error.msg)
+                        } else {
+                            $('#editMsgArea').removeClass('text-danger').addClass('text-success').text('個人資料編輯成功')
+                            setTimeout(function () {
+                                $('#editMsgArea').empty()
+                                $('#vendorPersonalModal').modal("hide")
+                            }, 1500);
+                        }
+                    })
+                    event.preventDefault();
+                })
+            })
+
+        })
+    </script>

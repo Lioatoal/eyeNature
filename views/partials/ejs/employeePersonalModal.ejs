@@ -1,0 +1,241 @@
+<!-- Personal Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">個人資料</h4>
+</div>
+<div class="modal-body">
+    <form id="employeePersonalEdit" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalAcctEmail'>帳號</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalAcctEmail" name="txtEditPersonalAcctEmail" type="text" placeholder="請輸入姓名" class="form-control input-sm"
+                    required="true" value="<%=acct.email%>" disabled/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalAcctName'>帳號名稱</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalAcctName" name="txtEditPersonalAcctName" type="text" placeholder="請輸入姓名" class="form-control input-sm"
+                    required="true" value="<%=acct.name%>" disabled/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalName'>姓名</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalName" name="txtEditPersonalName" type="text" placeholder="請輸入姓名" class="form-control input-sm"
+                    required="true" value="<%=employeeEdit.name%>"/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalNickname'>綽號</label>
+            <div class="col-lg-8  has-feedback">
+                <input id="txtEditPersonalNickname" name="txtEditPersonalNickname" type="text" placeholder="請輸入綽號" class="form-control input-sm"
+                    required="true" value="<%=employeeEdit.nickname%>"/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalFacebook'>Facebook</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalFacebook" name="txtEditPersonalFacebook" type="text" placeholder="請輸入Fackbook" class="form-control input-sm"
+                    required="true" value="<%=employeeEdit.facebook %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalEmail'>E-Mail</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalEmail" name="txtEditPersonalEmail" type="email" placeholder="請輸入E-mail" class="form-control input-sm"
+                    required="true" value="<%=employeeEdit.email %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalLine'>Line</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalLine" name="txtEditPersonalLine" type="text" placeholder="請輸入Line" class="form-control input-sm"
+                    value="<%=employeeEdit.line %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalWechat'>WeChat</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalWechat" name="txtEditPersonalWechat" type="text" placeholder="請輸入WeChat" class="form-control input-sm"
+                    value="<%=employeeEdit.wechat %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtEditPersonalBirth">出生年月日</label>
+            <div class="col-lg-8 has-feedback">
+                <div class="input-group form_date" data-date="">
+                    <input id="txtEditPersonalBirth" name="txtEditPersonalBirth" class="form-control" type="text" data-date-format="yyyy-mm-dd"
+                        placeholder="請選擇出生年月日" required="true" value="<%=employeeEdit.birthday %>">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <input type="hidden" id="dtp_input2" value="" />
+            <br/>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalBloodtype'>血型</label>
+            <div class="col-lg-8">
+                <select id="txtEditPersonalBloodtype" name="txtEditPersonalBloodtype" class="form-control input-sm">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="O">O</option>
+                    <option value="AB">AB</option>
+                </select>
+            </div>
+            <script> var blood = ["<%=employeeEdit.bloodtype %>"]; if (blood[0]) { $("#txtEditPersonalBloodtype").val(blood) }</script>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalMainPhone'>手機1</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalMainPhone" name="txtEditPersonalMainPhone" type="tel" placeholder="格式: 0912-333-444" class="form-control input-sm"
+                    required="true" value="<%=employeeEdit.mainphone %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalSecondaryPhone'>手機2</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalSecondaryPhone" name="txtEditPersonalSecondaryPhone" type="tel" placeholder="格式: 0912-333-444"
+                    class="form-control input-sm" value="<%=employeeEdit.secondaryphone %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalAddr'>地址</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalAddr" name="txtEditPersonalAddr" type="text" placeholder="請輸入地址" class="form-control input-sm"
+                    value="<%=employeeEdit.address %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalIdcardno'>身分證字號</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalIdcardno" name="txtEditPersonalIdcardno" type="text" placeholder="請輸入身分證字號" pattern="^[A-Z]\d{9}$"
+                    class="form-control input-sm" required="true" value="<%=employeeEdit.idcardno %>" disabled/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalGender'>性別</label>
+            <div class="col-lg-3 checkbox">
+                <label>
+                    <input name="txtEditPersonalGender" type="radio" value="0" checked/>女</label>
+            </div>
+            <div class="col-lg-3 checkbox">
+                <label>
+                    <input name="txtEditPersonalGender" type="radio" value="1" />男</label>
+            </div>
+        </div>
+        <script> 
+            var gender = [<%= employeeEdit.gender %>];
+            console.log(gender)
+            if (gender.length) {
+                $("input[name=txtEditPersonalGender]")[gender[0]].checked = true;
+            }
+        </script>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalStature'>身高</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalStature" name="txtEditPersonalStature" type="number" min="0" placeholder="請輸入身高" class="form-control input-sm"
+                    value="<%=employeeEdit.stature %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalWeight'>體重</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalWeight" name="txtEditPersonalWeight" type="number" min="0" placeholder="請輸入體重" class="form-control input-sm"
+                    value="<%=employeeEdit.weight %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalEdu'>學歷</label>
+            <div class="col-lg-8">
+                <select id="txtEditPersonalEdu" name="txtEditPersonalEdu" class="form-control input-sm">
+                    <% for(var i in employeeEdu) {%>
+                        <%if(employeeEdu[i].edulevel == employeeEdit.edulevel){%>
+                            <option value="<%= employeeEdu[i].id%>" selected>
+                                <%= employeeEdu[i].edulevel%>
+                            </option>
+                            <%} else {%>
+                                <option value="<%= employeeEdu[i].id%>">
+                                    <%= employeeEdu[i].edulevel%>
+                                </option>
+                                <%}%>
+                                    <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalSchool'>就讀/畢業學校</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalSchool" name="txtEditPersonalSchool" type="text" placeholder="請輸入就讀/畢業學校" class="form-control input-sm"
+                    value="<%=employeeEdit.school %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalNextofkin'>緊急聯絡人</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalNextofkin" name="txtEditPersonalNextofkin" type="text" placeholder="請輸入緊急聯絡人姓名" class="form-control input-sm"
+                    value="<%=employeeEdit.nextofkin %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalNextofkinPhone'>緊急聯絡人電話</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalNextofkinPhone" name="txtEditPersonalNextofkinPhone" type="text" placeholder="請輸入緊急聯絡人電話" class="form-control input-sm"
+                    value="<%=employeeEdit.nextofkin_phone %>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalBankcode'>銀行代碼</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalBankcode" name="txtEditPersonalBankcode" type="text" placeholder="請輸入廠商銀行代碼" class="form-control input-sm"
+                    required="true" value="<%=employeeEdit.bankcode %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalBankacct'>銀行帳戶</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalBankacct" name="txtEditPersonalBankacct" type="text" placeholder="請輸入廠商銀行帳戶" class="form-control input-sm"
+                    required="true" value="<%=employeeEdit.bankaccount %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalBankname'>銀行帳戶戶名</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalBankname" name="txtEditPersonalBankname" type="text" placeholder="請輸入廠商銀行帳戶戶名" class="form-control input-sm"
+                    required="true" value="<%=employeeEdit.bankname %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalIswork'>在職中</label>
+            <div class="col-lg-8 checkbox">
+                <label>
+                    <%if(employeeEdit.iswork){%>
+                        <input id="txtEditPersonalIswork" name="txtEditPersonalIswork" type="checkbox" value="1" checked disabled/>在職中</label>
+                <%}else{%>
+                    <input id="txtEditPersonalIswork" name="txtEditPersonalIswork" type="checkbox" value="1" disabled/>在職中</label>
+                    <%}%>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="editMsgArea" class="msgArea" style="font-weight: bold; text-align: left; word-wrap: break-word;"></div>
+    </div>
+    <button id="employeePersonalCheck" class="btn btn-info" type="submit" form="employeePersonalEdit">送出</button>
+    <button id="employeePersonalCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>

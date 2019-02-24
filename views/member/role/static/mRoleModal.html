@@ -1,0 +1,77 @@
+<!-- CREATE Modal -->
+<div class="modal fade" id="roleCreateModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">新增角色</h4>
+			</div>
+			<div class="modal-body">
+				<form id="roleCreate" class="form-horizontal">
+					<div class="row form-group">
+						<label class="control-label col-lg-3 required" for='txtRoleName'>角色名稱</label>
+						<div class="col-lg-8 has-feedback">
+							<input id="txtRoleName" name="txtRoleName" type="text" placeholder="請輸入角色名稱(英文)" class="form-control input-sm" required="true"
+							/>
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="row form-group">
+						<label class="control-label col-lg-3 required" for='txtRoleDescr'>角色描述</label>
+						<div class="col-lg-8 has-feedback">
+							<input id="txtRoleDescr" name="txtRoleDescr" type="text" placeholder="請輸入角色描述(中文)" class="form-control input-sm" required="true"
+							/>
+							<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<div class="col-lg-8">
+					<div id="creatMsgArea" class="msgArea" style="text-align: left;"></div>
+				</div>
+				<button id="createCheck" class="btn btn-info" type="submit" form="roleCreate">送出</button>
+				<button id="createCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- DELETE Modal -->
+<div class="modal fade" id="roleDelModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">確定刪除角色</h4>
+			</div>
+			<div class="modal-body">
+				<table id="roleDelTable" class="table table-bordered" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<!-- <th>ID</th> -->
+							<th>角色名稱</th>
+							<th>角色描述</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<div class="col-lg-8">
+					<div id="delMsgArea" class="msgArea" style="text-align: left;"></div>
+				</div>
+				<button id="delSubmit" class="btn btn-info" type="submit">確認</button>
+				<button id="delCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--EDIT Module-->
+<div class="modal fade" id="roleEditModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+		</div>
+	</div>
+</div>

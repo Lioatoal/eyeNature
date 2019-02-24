@@ -1,0 +1,48 @@
+<!-- CREATE Modal -->
+<div class="modal fade" id="customerCreateModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<!-- DELETE Modal -->
+<div class="modal fade" id="customerDelModal" role="dialog">
+    <div class="modal-dialog-lg" style="margin: 100px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">確定刪除角色</h4>
+            </div>
+            <div class="modal-body">
+                <table id="customerDelTable" class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>客戶編號</th>
+                            <th>客戶姓名</th>
+                            <th>電話</th>
+                            <th>地址</th>
+                            <th>備註</th>
+                            <th>在職中</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-8">
+                    <div id="delMsgArea" class="msgArea" style="text-align: left;"></div>
+                </div>
+                <button id="delSubmit" class="btn btn-info" type="submit">確認</button>
+                <button id="delCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EDIT Module-->
+<div class="modal fade" id="customerEditModal" role="dialog" style="overflow:scroll">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>

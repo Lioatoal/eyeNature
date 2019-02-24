@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../../partials/head.html %>
+        <!-- User define CSS -->
+        <link href="public/assets/css/material/mRecord.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="public/DataTables-1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="public/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+        <script src="public/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="UTF-8"></script>
+        <script src="public/datetimepicker/js/locales/bootstrap-datetimepicker.zh-TW.js" type="text/javascript" charset="UTF-8"></script> -->
+        <!-- <script src="public/jQueryValidate/jquery.validate.min.js" type="text/javascript" charset="UTF-8"></script> -->
+</head>
+
+<body>
+    <div>
+        <% include ../../../partials/header.html %>
+        <% include ./mRecordModal.html %>
+        <div id="page-wrapper">
+            <div id="Header" class="row">
+                <div class="col-md-4">
+                    <strong style="font-size:32px">進&nbsp;銷&nbsp;日&nbsp;誌</strong>
+                </div>
+                <div class="col-md-8"></div>
+            </div>
+            <hr>
+            <div id="Main">
+                <% include ./mRecordSearchForm.html %>
+                <div class="row R1">
+                    <div class="col-md-12">
+                        <label class="btn btn-warning">
+                            <input id="export" style="display:none;">
+                            <i class="glyphicon glyphicon-file"></i>下載檔案
+                        </label>
+                    </div>
+                </div>
+                <table id="recordTable" class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>時戳</th>
+                            <th>物料名稱</th>
+                            <th>操作</th>
+                            <th>異動數量</th>
+                            <th>營隊名稱</th>
+                            <th>價格</th>
+                            <th>供應廠商</th>
+                            <th>操作者</th>
+                            <th>備註</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div class="modal fade" id="recordDetailModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">備註內容</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="recordDetail" class="form-horizontal">
+                        <div class="row form-group">
+                            <label class="control-label col-lg-3 required" for='txtRecordDetail'>備註內容</label>
+                            <textarea id="txtRecordDetail" name="txtRecordDetail" rows="10" cols="50" readonly>
+                            
+                        </textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="detailCheck" class="btn btn-info" type="button" data-dismiss="modal">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="public/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="public/DataTables-1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script src='views/material/record/JS/JSmRecord.js'></script>
+</body>
+
+</html>

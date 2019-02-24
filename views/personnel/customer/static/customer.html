@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../../partials/head.html %>
+    <!-- User define CSS -->
+    <link href="public/assets/css/personnel/customer.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="public/DataTables-1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="public/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" /> -->
+</head>
+
+<body>
+    <div>
+        <% include ../../../partials/header.html %>
+        <% include ./customerModal.html %>
+        <% include ./customerChildModal.html %>
+        <div id="page-wrapper">
+            <div id="Header" class="row">
+                <div class="col-md-4">
+                    <strong style="font-size:32px">客&nbsp;戶&nbsp;管&nbsp;理</strong>
+                </div>
+                <div class="col-md-8"></div>
+            </div>
+            <hr>
+            <div id="Main">
+                <div id="test" class="col-md-12"></div>
+                <div class="row R1">
+                    <div class="col-md-12">
+                    <% if(permission) {%>
+                        <% if(permission.CREATE) {%>
+                        <button id="add" class="btn btn-info" type="button" data-toggle="modal" data-target="#customerCreateModal">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </button>
+                        <%}%>
+                        <% if(permission.DELETE) {%>
+                        <button id="delete" class="btn btn-danger" type="button" data-toggle="modal" data-target="#customerDelModal">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </button>
+                        <%}%>
+                        <% if(permission.IMPORT) {%>
+                        <label class="btn btn-warning">
+                            <input id="import" style="display:none;" type="file">
+                            <i class="glyphicon glyphicon-file"></i>上傳檔案
+                        </label>
+                        <%}%>
+                        <% if(permission.EXPORT) {%>
+                        <label class="btn btn-warning">
+                            <input id="export" style="display:none;">
+                            <i class="glyphicon glyphicon-file"></i>下載檔案
+                        </label>
+                        <%}%>
+                    <%}%>
+                    </div>
+                </div>
+                <table id="customerTable" class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                <input type="checkbox" name="select_all" value="1" id="select-all">
+                            </th>
+                            <th>客戶編號</th>
+                            <th>客戶姓名</th>
+                            <th>電話</th>
+                            <th>地址</th>
+                            <th>備註</th>
+                            <th>會員</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="public/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="public/datetimepicker/js/locales/bootstrap-datetimepicker.zh-TW.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="public/jQueryValidate/jquery.validate.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script type="text/javascript" src="public/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="public/DataTables-1.10.16/js/dataTables.bootstrap.min.js"></script> -->
+
+    <script src='views/personnel/customer/JS/JSCustomer.js'></script>
+</body>
+
+</html>

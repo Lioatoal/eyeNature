@@ -1,0 +1,196 @@
+<!-- CREATE Modal -->
+<div class="modal fade secondModal" id="customerChildCreateModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- CREATE Modal -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">新增學員</h4>
+            </div>
+            <div class="modal-body">
+                <form id="customerChildCreate" class="form-horizontal">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3 required" for='txtCreateCustomerChildName'>姓名</label>
+                        <div class="col-lg-8 has-feedback">
+                            <input id="txtCreateCustomerChildName" name="txtCreateCustomerChildName" type="text" placeholder="請輸入姓名" class="form-control input-sm"
+                                required="true" />
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3 required" for='txtCreateCustomerChildIdcardno'>身分證字號</label>
+                        <div class="col-lg-8 has-feedback">
+                            <input id="txtCreateCustomerChildIdcardno" name="txtCreateCustomerChildIdcardno" type="text" placeholder="請輸入身分證字號" pattern="^[A-Z]\d{9}$"
+                                class="form-control input-sm" required="true" />
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3 required" for='txtCreateCustomerChildPassportno'>護照號碼</label>
+                        <div class="col-lg-8 has-feedback">
+                            <input id="txtCreateCustomerChildPassportno" name="txtCreateCustomerChildPassportno" type="text" placeholder="請輸入護照號碼" 
+                                class="form-control input-sm" required="true" />
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtCreateCustomerChildGender'>性別</label>
+                        <div class="col-lg-3 checkbox">
+                            <label>
+                                <input name="txtCreateCustomerChildGender" type="radio" value="0" checked/>女</label>
+                        </div>
+                        <div class="col-lg-3 checkbox">
+                            <label>
+                                <input name="txtCreateCustomerChildGender" type="radio" value="1" />男</label>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtCreateCustomerChildGender'>關係人</label>
+                        <div class="col-lg-8">
+                            <select id="txtCreateCustomerChildReln" name="txtEditRoleID" class="form-control"></select>
+                        </div>
+                       
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3 required" for="txtCreateCustomerChildBirth">出生年月日</label>
+                        <div class="col-lg-8 has-feedback">
+                            <div class="input-group form_date" data-date="">
+                                <input id="txtCreateCustomerChildBirth" name="txtCreateCustomerChildBirth" class="form-control" type="text" data-date-format="yyyy-mm-dd"
+                                    placeholder="請選擇出生年月日" required="true">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="dtp_input2" value="" />
+                        <br/>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3 required" for='txtEditEmployeeBloodtype'>血型</label>
+                        <div class="col-lg-8">
+                            <select id="txtCreateCustomerChildBloodtype" name="txtEditEmployeeBloodtype" class="form-control input-sm">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="O">O</option>
+                                <option value="AB">AB</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3 required" for='txtCreateCustomerChildSchool'>學校</label>
+                        <div class="col-lg-8 has-feedback">
+                            <input id="txtCreateCustomerChildSchool" name="txtCreateCustomerChildSchool" type="text" placeholder="請輸入學校" class="form-control input-sm"
+                                required="true" />
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtCreateCustomerChildFoodtype'>葷/素</label>
+                        <div class="col-lg-3 checkbox">
+                            <label>
+                                <input name="txtCreateCustomerChildFoodtype" type="radio" value="0" checked/>葷食</label>
+                        </div>
+                        <div class="col-lg-3 checkbox">
+                            <label>
+                                <input name="txtCreateCustomerChildFoodtype" type="radio" value="1" />全素</label>
+                        </div>
+                        <div class="col-lg-3 checkbox">
+                                <label>
+                                    <input name="txtCreateCustomerChildFoodtype" type="radio" value="2" />蛋奶素</label>
+                            </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtCreateCustomerChildStature'>身高</label>
+                        <div class="col-lg-8">
+                            <input id="txtCreateCustomerChildStature" name="txtCreateCustomerChildStature" type="number" min="0" placeholder="請輸入身高" class="form-control input-sm"
+                            />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtCreateCustomerChildWeight'>體重</label>
+                        <div class="col-lg-8">
+                            <input id="txtCreateCustomerChildWeight" name="txtCreateCustomerChildWeight" type="number" min="0" placeholder="請輸入體重" class="form-control input-sm"
+                            />
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for='txtCreateCustomerChildSpacial'>特殊照護</label>
+                        <div class="col-lg-8">
+                            <textarea id="txtCreateCustomerChildSpacial" name="txtCreateCustomerChildSpacial" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3 required" for='txtCreateCustomerNextofkin'>緊急聯絡人姓名</label>
+                        <div class="col-lg-8 has-feedback">
+                            <input id="txtCreateCustomerNextofkin" name="txtCreateCustomerNextofkin" type="text" placeholder="請輸入聯絡人姓名" class="form-control input-sm"
+                                required="true" />
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3 required" for='txtCreateCustomerNextofkinPhone'>緊急聯絡人手機</label>
+                        <div class="col-lg-8">
+                            <input id="txtCreateCustomerNextofkinPhone" name="txtCreateCustomerNextofkinPhone" type="tel" placeholder="格式: 0912-333-444" class="form-control input-sm"
+                                required="true" />
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-3" for="txtCreatecustomerChildRemark">備註</label>
+                        <div class="col-lg-8">
+                            <textarea id="txtCreateCustomerChildRemark" name="txtCreateCustomerChildRemark" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-8">
+                    <div id="creatChildMsgArea" class="msgArea" style="text-align: left;"></div>
+                </div>
+                <button id="createChildCheck" class="btn btn-info" type="submit" form="customerChildCreate">送出</button>
+                <button id="createChildCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DELETE Modal -->
+<div class="modal fade" id="customerChildDelModal" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">確定刪除角色</h4>
+            </div>
+            <div class="modal-body">
+                <table id="customerChildDelTable" class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>身份證</th>
+                            <th>護照</th>
+                            <th>年齡</th>
+                            <th>關係人</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-8">
+                    <div id="delChildMsgArea" class="msgArea" style="text-align: left;"></div>
+                </div>
+                <button id="delChildSubmit" class="btn btn-info" type="submit">確認</button>
+                <button id="delChildCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--EDIT Module-->
+<div class="modal fade" id="customerChildEditModal" role="dialog">
+    <div class="modal-dialog modal-md ">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>

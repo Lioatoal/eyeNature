@@ -1,0 +1,49 @@
+<% for(var i=0; i<rowData.length; i++) {%>
+    <div id="" class="row <%=rowData[i].imptance %>">
+        <div class="col-md-1 text-center RC1">
+            <p><%=rowData[i].m_display.split(' ')[1]%></p>
+        </div>
+        <div class="col-md-2 text-center RC2">
+            <img class="img-circle" src="<%= rowData[i].imgr %>">
+            <p><%= rowData[i].name %></p>
+        </div>
+        <div class="col-md-6 RC3">
+            <h3><a id="<%=rowData[i].id%>" href="#" class="view" type="button" data-toggle="modal" data-target="#bltnViewModal"><%= rowData[i].theme %></a></h3>
+            <p><%- rowData[i].content %></p>
+        </div>
+        <div class="col-md-3 RC4">
+        <% if(rowData[i].permission) { %>
+            <div class="row" style="font-size:26px;">
+                <% if(rowData[i].permission.UPDATE || ((userInfo.email == rowData[i].author_id) && rowData[i].permission.CREATE)) { %>
+                <div class="col-md-4 ">
+                    <i id="<%=rowData[i].id%>" class="pointer fa fa-edit edit" style="color:#bfbfbf;"
+                         type="button" data-toggle="modal" data-target="#bltnEditModal"></i>
+                </div>
+                <div class="col-md-4 ">
+                    <% if(rowData[i].active){%>
+                    <i class="fa fa-eye-slash" style="color:#bfbfbf;" ></i>
+                    <% } else { %>
+                    <i class="fa fa-eye-slash" style="color:#0035ff;" ></i>
+                    <%}%>
+                </div>
+                <%}%>
+                <% if(rowData[i].permission.DELETE || ((userInfo.email == rowData[i].author_id) && rowData[i].permission.CREATE)) { %>
+                <div class="col-md-4 ">
+                    <i id="<%=rowData[i].id%>" class="pointer icon ion-android-delete delete" style="color:#bfbfbf;"
+                        type="button" data-toggle="modal" data-target="#bltnDeleteModal"></i>
+                </div>
+                <%}%>
+            </div>
+        <%}%>
+            <div class="row">
+                <div class="col-md-12 counter"><strong>倒數: <span><%= rowData[i].deadline %></span></strong></div>
+                <div class="col-md-12"><strong>發布時間: <span><%= rowData[i].postdate %></span></strong></div>
+            </div>
+        </div>
+    </div>
+
+<% } %>
+<script>
+    var total = <%= totalPage%>;
+
+</script>

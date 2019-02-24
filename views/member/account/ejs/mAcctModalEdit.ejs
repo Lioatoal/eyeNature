@@ -1,0 +1,82 @@
+<div class="modal-header">
+    <button id="editID" type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">帳號編輯</h4>
+</div>
+<div class="modal-body">
+    <form id="acctEdit" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtEditAcctEmail">帳號(e-Mail)</label>
+            <div class="col-lg-8">
+                <input id="txtEditAcctEmail" name="txtEditAcctEmail" type="email" class="form-control input-sm" value="<%= acct.email%>" disabled/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtEditAcctName">使用者</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditAcctName" name="txtEditAcctName" type="text" class="form-control input-sm" required="true" value="<%= acct.name%>"/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtEditAcctRole">角色</label>
+            <div class="col-lg-8">
+                <select id="txtEditAcctRole" name="txtEditAcctRole" class="form-control input-sm ">
+                <% for (var i = 0; i < role.length; i++) {%>
+                    <%if (role[i].id == acct.role_id) { %>
+                        <option value="<%= role[i].id%>" selected="true"><%= role[i].r_descr%></option>;
+                    <%}else{%>
+                        <option value="<%= role[i].id%>" ><%= role[i].r_descr%></option>;
+                    <%}%>
+                <%}%>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtEditAcctPersonnel">所屬人員</label>
+            <div class="col-lg-8">
+                <select id="txtEditAcctPersonnel" name="txtEditAcctPersonnel" class="form-control input-sm">
+                    <option value="<%=acct.related_id%>" selected></option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtEditAcctPwd">密碼</label>
+            <div class="col-lg-8 button">
+                <input id="txtEditAcctPwd" name="txtEditAcctPwd" type="password" class="form-control input-sm" placeholder="請輸入新密碼，如不更新密碼請留空白"
+                />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtEditAcctPwdCheck">再次輸入密碼</label>
+            <div class="col-lg-8 button">
+                <input id="txtEditAcctPwdCheck" name="txtEditAcctPwdCheck" type="password" class="form-control input-sm" placeholder="請再次輸入新密碼，如不更新密碼請留空白"
+                />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtEditAcctActive">帳號啟用</label>
+            <div class="col-lg-8 checkbox">
+                <label>
+                    <%if (acct.enable == 1) {%>
+                    <input id="txtEditAcctActive" name="txtEditAcctActive" type="checkbox" checked/>啟用
+                    <%}else{%>
+                    <input id="txtEditAcctActive" name="txtEditAcctActive" type="checkbox" />啟用   
+                    <%}%>
+                </label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtEditAcctRemark">備註</label>
+            <div class="col-lg-8">
+                <textarea id="txtEditAcctRemark" name="txtEditAcctRemark" class="form-control" rows="5"><%= acct.remark%></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="editMsgArea" class="msgArea" style="text-align: left;"></div>
+    </div>
+    <button id="editCheck" class="btn btn-info" type="submit" form="acctEdit">送出</button>
+    <button id="editCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>

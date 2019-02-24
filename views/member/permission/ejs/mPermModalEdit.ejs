@@ -1,0 +1,84 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">權限編輯</h4>
+</div>
+<div class="modal-body">
+    <form id="permEdit" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required">角色名稱:</label>
+            <div class="col-lg-8">
+                <select id="txtEditRoleID" name="txtEditRoleID" class="form-control">
+                    <option><%= permit.r_descr%></option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required">物件類別:</label>
+            <div class="col-lg-8">
+                <select id="" name="" class="form-control">
+                    <option><%= permit.m_descr.split('_')[0]%></option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required">物件清單:</label>
+            <div class="col-lg-8">
+                <select id="txtEditModuleName" name="txteditModuleName" class="form-control">
+                    <option><%= permit.m_descr.split('_')[1]%></option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required">物件權限:</label>
+            <div class="col-lg-8">
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="txtEditQUERY" name="txtEditQUERY" checked disabled>只能讀取
+                </label>
+                <label class="checkbox-inline">
+                    <%if(permit.permCREATE =='1'){%>
+                    <input type="checkbox" id="txtEditCREATE" name="txtEditCREATE" checked>新增
+                    <%}else{%>
+                    <input type="checkbox" id="txtEditCREATE" name="txtEditCREATE" >新增  
+                    <%}%>
+                </label>
+                <label class="checkbox-inline">
+                    <%if(permit.permUPDATE =='1'){%>
+                    <input type="checkbox" id="txtEditUPDATE" name="txtEditUPDATE" checked>編輯
+                    <%}else{%>
+                    <input type="checkbox" id="txtEditUPDATE" name="txtEditUPDATE" >編輯
+                    <%}%>    
+                </label>
+                <label class="checkbox-inline">
+                    <%if(permit.permDELETE =='1'){%>
+                    <input type="checkbox" id="txtEditDELETE" name="txtEditDELETE" checked>刪除
+                    <%}else{%>
+                    <input type="checkbox" id="txtEditDELETE" name="txtEditDELETE" >刪除
+                    <%}%>
+                </label>
+                <%if(permit.m_descr.split('_')[0] == "人員管理" || permit.m_descr == "物料管理_庫存管理" || permit.m_descr == "營隊管理_營隊總覽"){%>
+                <label class="checkbox-inline">
+                    <%if(permit.permIMPORT =='1'){%>
+                    <input type="checkbox" id="txtEditIMPORT" name="txtEditIMPORT" checked>匯入
+                    <%}else{%>
+                    <input type="checkbox" id="txtEditIMPORT" name="txtEditIMPORT" >匯入
+                    <%}%> 
+                </label>
+                <label class="checkbox-inline">
+                    <%if(permit.permEXPORT =='1'){%>
+                    <input type="checkbox" id="txtEditEXPORT" name="txtEditEXPORT" checked>匯出
+                    <%}else{%>
+                    <input type="checkbox" id="txtEditEXPORT" name="txtEditEXPORT" >匯出
+                    <%}%>
+                </label>
+                <%}%>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+        <div class="col-lg-8">
+                <div id="editMsgArea" class="msgArea" style="text-align: left"></div>
+        </div>
+        <button id="editSubmit" class="btn btn-info" type="submit">送出</button>
+        <button id="editCancel" class="btn btn-deault" type="button" data-dismiss="modal">取消</button>
+</div>

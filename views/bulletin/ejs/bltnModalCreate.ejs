@@ -1,0 +1,92 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">新增公佈欄</h4>
+</div>
+<div class="modal-body main">
+    <form id="bltnCreate" class="form-horizontal">
+        <div class="row form-group">
+            <label id="bltnID" class="control-label col-lg-3 required" for='txtCreateBltnTheme'>標題:</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtCreateBltnTheme" name="txtCreateBltnTheme" type="text" placeholder="請輸入標題" class="form-control input-sm"
+                    required="true" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required">類別:</label>
+            <div class="col-lg-8 has-feedback">
+                <select id="txtCreateBltnModuleName" class="input-sm">
+                <% for(var i=0; i< bltnModules.length; i++){%>
+                    <option value="<%=bltnModules[i].module_id%>" ><%= bltnModules[i].m_display %></option>
+                <%}%>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtCreateBltnImportant'>重要性:</label>
+                <div class="col-lg-3 checkbox">
+                    <label>
+                        <input name="txtCreateBltnImportant" type="radio" value=1 />限期</label>
+                </div>
+                <div class="col-lg-3 checkbox">
+                    <label>
+                        <input name="txtCreateBltnImportant" type="radio" value=2 />重要</label>
+                </div>
+                <div class="col-lg-3 checkbox">
+                    <label>
+                        <input name="txtCreateBltnImportant" type="radio" value=3 checked />普通</label>
+                </div>
+        </div>
+
+        <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtCreateBltnPublish'>是否發布:</label>
+                <div class="col-lg-3 checkbox">
+                    <label>
+                        <input name="txtCreateBltnPublish" type="radio" value=1 />是</label>
+                </div>
+                <div class="col-lg-3 checkbox">
+                    <label>
+                        <input name="txtCreateBltnPublish" type="radio" value=0 checked />否</label>
+                </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtCreateBltnCount'>閱讀秒數</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtCreateBltnCount" name="txtCreateBltnCount" type="number" min=0 max=120 placeholder="請輸入秒數，最多120秒" class="form-control input-sm"
+                    required="true" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtCreateBltnDeadline">截止時間</label>
+            <div class="col-lg-8 has-feedback">
+                <div class="input-group form_date" data-date="">
+                    <input id="txtCreateBltnDeadline" name="txtCreateBltnDeadline" class="form-control" type="text" data-date-format="yyyy-mm-dd hh"
+                        placeholder="請選擇截止時間" required="true">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <input type="hidden" id="dtp_input2" value="" />
+            <br/>
+        </div>
+
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtCreateBltnContent">內容</label>
+            <div class="col-lg-8">
+                <textarea id="txtCreateBltnContent" name="txtCreateBltnContent" class="form-control"></textarea>
+            </div>
+        </div>
+        <div id="txtBltnWilllook" class="row form-group"></div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="creatMsgArea" class="msgArea" style="text-align: left;"></div>
+    </div>
+    <button id="createCheck" class="btn btn-info" type="submit" form="bltnCreate">送出</button>
+    <button id="createCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>
+

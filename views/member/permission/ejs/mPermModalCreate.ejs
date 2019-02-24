@@ -1,0 +1,73 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">新增權限</h4>
+</div>
+<div class="modal-body">
+    <form id="permCreate" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required">角色名稱:</label>
+            <div class="col-lg-8">
+                <select id="txtCreateRoleID" name="txtCreateRoleID" class="form-control">
+                    <%for(var i in role){%>
+                        <option value="<%= role[i].id%>"><%= role[i].r_descr%></option>
+                    <%}%>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+                <label class="control-label col-lg-3 required">物件類別:</label>
+                <div class="col-lg-8">
+                    <select id="txtCreateModuleHead" name="txtCreateModuleHead" class="form-control">
+                    </select>
+                </div>
+            </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required">物件清單:</label>
+            <div class="col-lg-8">
+                <select id="txtCreateModuleName" name="txtCreateModuleName" class="form-control">
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required">物件權限:</label>
+            <div class="col-lg-8">
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="txtCreateQUERY" name="txtCreateQUERY" checked disabled>只能讀取
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="txtCreateCREATE" name="txtCreateCREATE" >新增
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="txtCreateUPDATE" name="txtCreateUPDATE" >編輯
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" id="txtCreateDELETE" name="txtCreateDELETE" >刪除
+                </label>
+                <label class="checkbox-inline createIMPORT">
+                    <input type="checkbox" id="txtCreateIMPORT" name="txtCreateDELETE" >匯入
+                </label>
+                <label class="checkbox-inline createEXPORT">
+                    <input type="checkbox" id="txtCreateEXPORT" name="txtCreateDELETE" >匯出
+                </label>
+            </div>
+        </div>
+        
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="createMsgArea" class="msgArea" style="text-align: left"></div>
+    </div>
+    <button id="createSubmit" class="btn btn-info" type="submit">送出</button>
+    <button id="createCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>
+<script>
+    var modules = [];
+    <% for(const i in modules){ %>
+        modules[<%= i %>] = {
+            id : '<%= modules[i].id %>',
+            head: '<%= modules[i].m_descr.split("_")[0]%>',
+            body: '<%= modules[i].m_descr.split("_")[1]%>'
+        }
+    <%}%>
+</script>

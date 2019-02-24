@@ -1,0 +1,59 @@
+<div class="row">
+    <label class="control-label col-lg-3">選擇看過了名單</label>
+    <label class="control-label col-lg-2">角色:</label>
+    <div class="col-lg-6 has-feedback">
+        <select id="txtBltnRoleSelect" class="input-sm">
+            <% for(var i=0; i< role.length; i++){%>
+                <option name="<%=role[i].id%>" value="<%=role[i].id%>">
+                    <%= role[i].r_descr %>
+                </option>
+                <%}%>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <hr style="border: 2px">
+    <div class="col-lg-5 col-lg-offset-1" style="font-size: 2em ;">待選擇</div>
+    <div class="col-lg-5 col-lg-offset-1" style="font-size: 2em ;">已選擇</div>
+</div>
+
+<% for(var i in role) {%>
+    <div id="role_<%=role[i].id%>" class="willBlock" style="display: none">
+        <div class="col-md-4 col-md-offset-1 willlook lookleft">
+            <% for(var j in acct) {%>
+                <%if(acct[j].role_id == role[i].id){%>
+                    <img id="<%= acct[j].email%>" name="<%= j%>" src="<%= acct[j].imgr%>" title="<%= acct[j].name%>" class="img-circle" />
+                    <%}%>
+                        <%}%>
+        </div>
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-success btn-sm chosenBtn" style="margin:20%; margin-top:100px">
+                <span class="glyphicon glyphicon-chevron-right"></span> 全選
+            </button>
+            <button type="button" class="btn btn-default btn-sm unchosenBtn" style="margin:20%;">
+                <span class="glyphicon glyphicon-chevron-left"></span> 取消
+            </button>
+        </div>
+        <div class="col-md-4 willlook lookright">
+            <% for(var j in acct) {%>
+                <%if(acct[j].role_id == role[i].id){%>
+                    <img id="<%= acct[j].email%>" name="<%= j%>" src="<%= acct[j].imgr%>" title="<%= acct[j].name%>" class="img-circle" style="display: none"
+                        value="<%= acct[j].email%>" />
+                    <%}%>
+                        <%}%>
+        </div>
+    </div>
+ <%}%>
+        <script>
+            var willlookArray = <%- JSON.stringify(willlook) %>;
+            if (Object.keys(willlookArray).length) {
+                let lookleft = $("#bltnEditModal .lookleft img");
+                let lookright = $("#bltnEditModal .lookright img");
+                for (let i = 0; i < lookleft.length; i++) {
+                    if (willlookArray[lookleft[i].id]) {
+                        lookleft[i].setAttribute('style', 'display:none');
+                        lookright[i].setAttribute('style', '');
+                    }
+                }
+            }
+        </script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../../../partials/head.html %>
+        <!-- User define CSS -->
+        <link href="public/assets/css/mInventory.css" rel="stylesheet" type="text/css" />
+        <!-- <script src="public/jQueryValidate/jquery.validate.min.js" type="text/javascript" charset="UTF-8"></script> -->
+</head>
+
+<body>
+    <div>
+        <% include ../../../partials/header.html %>
+            <% include ./mInventoryModal.html %>
+                <div id="page-wrapper">
+                    <div id="Header" class="row">
+                        <div class="col-md-4">
+                            <strong style="font-size:32px">庫&nbsp;存&nbsp;管&nbsp;理</strong>
+                        </div>
+                        <div class="col-md-8"></div>
+                    </div>
+                    <hr>
+                    <div id="Main">
+                        <% include ./mInventorySearchForm.html %>
+                            <div class="row R1">
+                                <div class="col-md-9">
+                                    <button id="add" class="btn btn-info" type="button" data-toggle="modal" data-target="#inventoryCreateModal">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                    </button>
+                                    <button id="delete" class="btn btn-danger" type="button" data-toggle="modal" data-target="#inventoryDelModal">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </button>
+                                    <label class="btn btn-warning">
+                                        <input id="import" style="display:none;" type="file">
+                                        <i class="glyphicon glyphicon-file"></i>上傳檔案
+                                    </label>
+                                    <label class="btn btn-warning">
+                                        <input id="export" style="display:none;">
+                                        <i class="glyphicon glyphicon-file"></i>下載檔案
+                                    </label>
+                                </div>
+                                <div class="col-md-3 text-right">
+                                    <button id="addInventoryType" class="btn btn-success" type="button" data-toggle="modal" data-target="#addInventoryTypeModal">
+                                        <i class="glyphicon glyphicon-plus">類別</i>
+                                    </button>
+                                    <button id="addInventoryComb" class="btn btn-success" type="button" data-toggle="modal" data-target="#addInventoryCombModal">
+                                        <i class="glyphicon glyphicon-plus">成品</i>
+                                    </button>
+                                    <button id="addInventoryLocation" class="btn btn-success" type="button" data-toggle="modal" data-target="#addInventoryLocationModal">
+                                        <i class="glyphicon glyphicon-plus">庫存地</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <table id="inventoryTable" class="table table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <input type="checkbox" name="select_all" value="1" id="select-all">
+                                        </th>
+                                        <th>類別</th>
+                                        <th>名稱</th>
+                                        <th>單價</th>
+                                        <th>廠商</th>
+                                        <th>負責人</th>
+                                        <th>庫存數量</th>
+                                        <th>所需數量</th>
+                                        <th>庫存地</th>
+                                        <th>成品</th>
+                                        <th>進銷操作</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+    </div>
+    <!-- <script type="text/javascript" src="public/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="public/DataTables-1.10.16/js/dataTables.bootstrap.min.js"></script> -->
+    <script src='views/material/inventory/JS/JSmInventory.js'></script>
+</body>
+
+</html>

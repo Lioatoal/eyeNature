@@ -1,0 +1,44 @@
+<% for(var i=0; i<employeeList.length;i++) {%>
+<tr>
+    <td class='text-center'>
+        <input id='<%= employeeList[i].id %>' type='checkbox'>
+    </td>
+    <td>
+        <%=employeeList[i].name%>
+    </td>
+    <td>
+        <%=employeeList[i].nickname%>
+    </td>
+    <td>
+        <%=employeeList[i].title %>
+    </td>
+    <td>
+        <%=employeeList[i].mainphone %>
+    </td>
+    <td>
+        <%=employeeList[i].seconaryphone %>
+    </td>
+    <td>
+        <%=employeeList[i].edulevel %>
+    </td>
+    <td>
+        <%=employeeList[i].school %>
+    </td>
+    <td>
+        <% if(employeeList[i].iswork== '1'){ %>
+            <span class="label label-primary">
+                <i class="glyphicon glyphicon-ok-circle"></i> 在職中</span>
+            <!-- <input class="btn btn-info" style="WIDTH: 68px;" value="啟用" disabled></input> -->
+        <%} else {%>
+            <span class="label label-danger">
+                <i class="glyphicon glyphicon-ban-circle"></i> 未在職</span>
+            <!-- <input class="btn btn-danger" style="WIDTH: 68px;" value="未啟用" disabled></input> -->
+        <%}%>
+    </td>
+    <td class="text-center">
+        <button id="<%=employeeList[i].id%>" class="btn btn-primary editbtn btn-circle" role="button" data-toggle="modal" data-target="#employeeEditModal">
+            <i class="glyphicon glyphicon-edit"></i>
+        </button>
+    </td>
+</tr>
+<% } %>

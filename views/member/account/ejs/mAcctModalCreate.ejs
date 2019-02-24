@@ -1,0 +1,80 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">新增帳號</h4>
+</div>
+<div class="modal-body">
+    <form id="acctCreate" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtCreateAcctEmail">帳號(e-Mail)</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtCreateAcctEmail" name="txtCreateAcctEmail" type="email" class="form-control input-sm" placeholder="請輸入帳號(e-Mail)"
+                    required="true" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtCreateAcctName">使用者</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtCreateAcctName" name="txtCreateAcctName" type="text" class="form-control input-sm" placeholder="請輸入使用者名稱" required="true"
+                />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtCreateAcctRole">角色</label>
+            <div class="col-lg-8">
+                <select id="txtCreateAcctRole" name="txtCreateAcctRole" class="form-control input-sm">
+                    <%for (var i in role){%>
+                        <option value="<%= role[i].id %>">
+                            <%= role[i].r_descr%>
+                        </option>
+                        <%}%>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtCreateAcctPersonnel">所屬人員</label>
+            <div class="col-lg-8">
+                <select id="txtCreateAcctPersonnel" name="txtCreateAcctPersonnel" class="form-control input-sm">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtCreateAcctPwd">密碼</label>
+            <div class="col-lg-8 button has-feedback">
+                <input id="txtCreateAcctPwd" name="txtCreateAcctPwd" type="password" class="form-control input-sm" placeholder="請輸入密碼" required="true"
+                />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtCreateAcctPwdCheck">再次輸入密碼</label>
+            <div class="col-lg-8 button has-feedback">
+                <input id="txtCreateAcctPwdCheck" name="txtCreateAcctPwdCheck" type="password" class="form-control input-sm" placeholder="請再次輸入密碼"
+                    required="true" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtCreateAcctActive">帳號啟用</label>
+            <div class="col-lg-8 checkbox">
+                <label>
+                    <input id="txtCreateAcctActive" name="txtCreateAcctActive" type="checkbox" value="1" />啟用</label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtCreateAcctRemark">備註</label>
+            <div class="col-lg-8">
+                <textarea id="txtCreateAcctRemark" name="txtCreateAcctRemark" class="form-control" rows="5"></textarea>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="creatMsgArea" class="msgArea" style="text-align: left;"></div>
+    </div>
+    <button id="createCheck" class="btn btn-info " type="submit" form="acctCreate">送出</button>
+    <button id="createCancel" class="btn btn-default " type="button" data-dismiss="modal">取消</button>
+</div>

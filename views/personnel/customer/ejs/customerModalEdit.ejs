@@ -1,0 +1,189 @@
+<!-- Edit Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">新增客戶</h4>
+</div>
+<div class="modal-body">
+    <form id="customerEdit" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditcustomerEmail'>帳號(電子信箱)</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditCustomerEmail" name="txtEditCustomerEmail" type="email" placeholder="請輸入E-mail" class="form-control input-sm"
+                    required="true" value="<%= customerEdit.email%>"/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditCustomerIdcardno'>身分證字號</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditCustomerIdcardno" name="txtEditCustomerIdcardno" type="text" placeholder="請輸入身分證字號" pattern="^[A-Z]\d{9}$"
+                    class="form-control input-sm" required="true" value="<%= customerEdit.idcardno%>" disabled/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditCustomerName'>姓名</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditCustomerName" name="txtEditCustomerName" type="text" placeholder="請輸入姓名" class="form-control input-sm"
+                    required="true" value="<%= customerEdit.name%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditCustomerGender'>性別</label>
+            <div class="col-lg-3 checkbox">
+                <label>
+                    <input name="txtEditCustomerGender" type="radio" value="0" checked/>女</label>
+            </div>
+            <div class="col-lg-3 checkbox">
+                <label>
+                    <input name="txtEditCustomerGender" type="radio" value="1" />男</label>
+            </div>
+            <script>
+                var gender = [<%= customerEdit.gender%>];
+                if(gender.length)
+                {
+                    $("input[name=txtEditCustomerGender]")[gender[0]].checked = true;
+                }
+            </script>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtEditCustomerBirth">出生年月日</label>
+            <div class="col-lg-8 has-feedback">
+                <div class="input-group form_date" data-date="">
+                    <input id="txtEditCustomerBirth" name="txtEditCustomerBirth" class="form-control" type="text" data-date-format="yyyy-mm-dd"
+                        placeholder="請選擇出生年月日" required="true" value="<%= customerEdit.birthday%>">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <input type="hidden" id="dtp_input2" value="" />
+            <br/>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditCustomerAddrIO'>國內(外)地址</label>
+            <div class="col-lg-3 checkbox">
+                <label>
+                    <input name="txtEditCustomerAddrIO" type="radio" value="0" checked/>國內</label>
+            </div>
+            <div class="col-lg-3 checkbox">
+                <label>
+                    <input name="txtEditCustomerAddrIO" type="radio" value="1" />國外</label>
+            </div>
+            <div class="col-lg-offset-3 col-lg-8 has-feedback">
+                <input id="txtEditCustomerAddr" name="txtEditCustomerAddr" type="text" placeholder="請輸入地址" class="form-control input-sm"
+                    required="true" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <script>
+                var addr = "<%= customerEdit.addr%>", intladdr = "<%= customerEdit.intladdr%>";
+                if(addr){
+                    $("input[name=txtEditCustomerAddrIO]")[0].checked = true;
+                    $("#txtEditCustomerAddr").val(addr);
+                } else if(intladdr){
+                    $("input[name=txtEditCustomerAddrIO]")[1].checked = true;
+                    $("#txtEditCustomerAddr").val(intladdr);
+                }
+            </script>
+        </div>
+        
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditCustomerPhone'>市話</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditCustomerPhone" name="txtEditCustomerPhone" type="tel" placeholder="格式: 02-1231233" class="form-control input-sm"
+                    required="true" value="<%= customerEdit.phone%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditCustomerCellphone'>手機</label>
+            <div class="col-lg-8">
+                <input id="txtEditCustomerCellphone" name="txtEditCustomerCellphone" type="tel" placeholder="格式: 0912-333-444" class="form-control input-sm"
+                    required="true" value="<%= customerEdit.cellphone%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditCustomerContactName'>聯絡人姓名</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditCustomerContactName" name="txtEditCustomerContactName" type="text" placeholder="請輸入聯絡人姓名" class="form-control input-sm"
+                    required="true" value="<%= customerEdit.contactname%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditCustomerContactPhone'>聯絡人手機</label>
+            <div class="col-lg-8">
+                <input id="txtEditCustomerContactPhone" name="txtEditCustomerContactPhone" type="tel" placeholder="格式: 0912-333-444" class="form-control input-sm"
+                    required="true" value="<%= customerEdit.contactphone%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditCustomerIswork'>是否為會員</label>
+            <div class="col-lg-3 checkbox">
+                <label>
+                    <input name="txtEditCustomerIswork" type="radio" value="0" checked/>非會員</label>
+            </div>
+            <div class="col-lg-3 checkbox">
+                <label>
+                    <input name="txtEditCustomerIswork" type="radio" value="1" />會員</label>
+            </div>
+            <script>
+                var iswork = [<%= customerEdit.iswork%>];
+                if(iswork.length)
+                {
+                    $("input[name=txtEditCustomerIswork]")[iswork[0]].checked = true;
+                }
+            </script>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtEditcustomerRemark">管理員備註</label>
+            <div class="col-lg-8">
+                <textarea id="txtEditCustomerRemark" name="txtEditCustomerRemark" class="form-control" rows="5" ><%= customerEdit.remark%></textarea>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for="txtEditcustomerChild">學員管理</label>
+        </div>
+        <div class="row form-group">
+            <div class="col-lg-3 text-right">
+                <button id="childAdd" class="btn btn-info" type="button" data-toggle="modal" data-target="#customerChildCreateModal">
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+                
+                <button id="childDelete" class="btn btn-danger" type="button" data-toggle="modal" data-target="#customerChildDelModal">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </button>
+            </div>
+            <div class="col-lg-8">
+                <table id="customerChildTable" class="table table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                <input type="checkbox" name="select_all" value="1" id="selectSub-all">
+                            </th>
+                            <th>姓名</th>
+                            <th>身份證</th>
+                            <th>護照</th>
+                            <th>年齡</th>
+                            <th>關係人</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="editMsgArea" class="msgArea" style="text-align: left;"></div>
+    </div>
+    <button id="editCheck" class="btn btn-info" type="submit" form="customerEdit">送出</button>
+    <button id="editCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>

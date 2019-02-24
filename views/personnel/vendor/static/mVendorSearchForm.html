@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Search
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form id="inquiry" class="form-horizontal" role="form">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="inventoryname">種類:</label>
+                        <div class="col-lg-4">
+                            <select id="type" name="type" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true">
+                            <% if(types.length){ %>
+                                <% for(var i=0; i<types.length; i++) {%>
+                                <option value="<%= types[i].id%>">
+                                    <%= types[i].type%>
+                                </option>
+                                <% } %>
+                            <% } %>
+                            </select>
+                        </div>
+                        <label class="control-label col-lg-2" for="company">名稱:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="company" name="company">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="name">聯絡人:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="name" name="name">
+                        </div>
+                        <label class="control-label col-lg-2" for="phone">市內電話:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="phone" name="phone">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="cellphone">手機號碼:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="cellphone" name="cellphone">
+                        </div>
+                        <label class="control-label col-lg-2" for="iswork">合作中:</label>
+                        <div class="col-lg-4">
+                            <select id="iswork" name="iswork" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true">
+                                <option value="1">合作中</option>
+                                <option value="0">未合作</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-lg-offset-10 col-lg-2">
+                            <button id="searchPermBtn" type="submit" class="btn btn-info btn-block">送出</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

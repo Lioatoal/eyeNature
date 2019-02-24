@@ -1,0 +1,37 @@
+<div id="commentPoint" class="row" style="border-bottom: solid 3px #7b7b7b;">
+    <h4>總留言數 : </h4>
+</div>
+<% for(var i=0; i<viewComment.length; i++) {%>
+<div id="comment_<%= viewComment[i].id%>" class="row R4 ">
+    <script> 
+        owner['comment_<%= viewComment[i].id%>'] = {
+            author: '<%= viewComment[i].author_id %>',
+            content: '<%-viewComment[i].message%>'
+        };
+    </script>
+    <div class="col-md-1 C1"><img src="<%= viewComment[i].imgr %>" class="img-circle" /></div>
+    <div class="col-md-4 C2">
+        <span><%= viewComment[i].name %></span>
+        <p>Post time : <%= viewComment[i].postdate %></p>
+    </div>
+    <div class="col-md-12 col-md-offset-11 C3">
+        <%if(userInfo.email == viewComment[i].author_id){ %>
+        <i class="editComment glyphicon glyphicon-pencil"></i>
+        <% } %>
+        <%if(userInfo.email == viewComment[i].author_id || userInfo.email == 'admin'){ %>
+        <i class="deleteComment glyphicon glyphicon-remove"></i>
+        <% } %>
+    </div>
+    <div class="col-md-11 C4"><%-viewComment[i].message%></div>
+    <div class="col-md-11 C5" style="display:none">
+        <%if(userInfo.email == viewComment[i].author_id){ %>
+        <textarea id="comment_<%= viewComment[i].id%>_textarea" class="txtCommentTemp"></textarea>
+        <button class="updatelComment btn btn-info" type="button">送出</button>
+        <button class="cancelComment btn btn-info" type="button">取消</button>
+        <% } %>
+    </div>
+</div>
+<% } %>
+<script>
+    bltnViewCommentEvent(bltnViewID);
+</script>

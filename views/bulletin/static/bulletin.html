@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../../partials/head.html %>
+    <!-- User define CSS -->
+    <link href="public/assets/css/bulletin.css" rel="stylesheet" type="text/css" >
+    <link href="public/assets/css/bulletinView.css" rel="stylesheet" type="text/css" >
+    <script src="public/esimakin-twbs-pagination-9b6d211/jquery.twbsPagination.js" type="text/javascript"></script>
+   
+</head>
+<body>
+    <div>
+        <% include ../../partials/header.html %>
+        <% include ./bulletinModule.html %>
+        <div id="page-wrapper" class="bulletinMain">
+            <div id="Header" class="row">
+                <div class="col-md-4">
+                    <strong style="font-size:32px">公&nbsp;佈&nbsp;欄</strong>
+                </div>
+                <div class="col-md-8">
+                    <form class="navbar-form navbar-right" target="_self">
+
+                        <div class="form-group">
+                            <label class="control-label" for="search-field"><i class="glyphicon glyphicon-search"></i></label>
+                            <input class="form-control search-field" type="search" name="search" id="search-field" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr style="border:2px solid #fff">
+            <% if(bltnCREATE){ %>
+            <div class="row">
+                <div id="navAdd" class="col-md-4">
+                    <button id="add" class="btn btn-info" type="button" data-toggle="modal" data-target="#bltnCreateModal">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <% } %>
+            <ul class="nav nav-tabs">
+                <li class="nav-item active" value=0>
+                  <a class="nav-link" href="#">1-1. 綜合公告</a>
+                </li>
+            <% for(var i=0; i<modules.length; i++) {%>
+                <% if(modules[i].m_name.split('_')[0] == "BULLETIN"){ %>
+                <li id="<%= modules[i].id%>" class="nav-item">
+                  <a class="nav-link" href="#"><%= modules[i].m_display %></a>
+                </li>
+                <%}%>
+            <%}%>
+            </ul>
+            <div id="Main"></div>
+            <div class="row text-center">
+                <div id="pagination"></div>
+            </div>
+        </div>
+    </div>
+    <script src='views/bulletin/JS/JSBulletin.js'></script>
+</body>
+</html>

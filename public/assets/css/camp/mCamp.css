@@ -1,0 +1,30 @@
+hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px #fff solid;
+}
+
+tr.details-control {
+    /* background: url('../resources/details_open.png') no-repeat center center; */
+    cursor: pointer;
+}
+
+thead{
+     background-color: #a0d9ff
+}
+
+.odd{
+    background-color: #fff;
+}
+
+.even{
+    background-color: #fff;
+}
+
+.R1 {
+    padding: 10px 0 10px 0;
+}
+
+.export {
+    padding: 10px 0 10px 0;
+}

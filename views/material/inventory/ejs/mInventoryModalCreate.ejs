@@ -1,0 +1,101 @@
+<!-- CREATE Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">新增物料</h4>
+</div>
+<div class="modal-body">
+    <form id="inventoryCreate" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtCreateInventoryName'>品項名稱</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtCreateInventoryName" name="txtCreateInventoryName" type="text" placeholder="請輸入品項名稱" class="form-control input-sm"
+                    required="true" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtCreateInventoryType'>類別</label>
+            <div class="col-lg-8">
+                <select id="txtCreateInventoryType" name="txtCreateInventoryType" class="form-control input-sm">
+                    <% for(var i in inventoryType) {%>
+                        <option value="<%= inventoryType[i].id%>">
+                            <%= inventoryType[i].name%>
+                        </option>
+                        <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtCreateInventoryLocation'>庫存地</label>
+            <div class="col-lg-8">
+                <select id="txtCreateInventoryLocation" name="txtCreateInventoryLocation" class="form-control input-sm">
+                    <% for(var i in inventoryLocation) {%>
+                        <option value="<%= inventoryLocation[i].id%>">
+                            <%= inventoryLocation[i].name%>
+                        </option>
+                        <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtCreateInventoryComb'>成品</label>
+            <div class="col-lg-8">
+                <select id="txtCreateInventoryComb" name="txtCreateInventoryComb" class="form-control input-sm">
+                    <% for(var i in inventoryComb) {%>
+                        <option value="<%= inventoryComb[i].id%>">
+                            <%= inventoryComb[i].name%>
+                        </option>
+                        <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtCreateInventoryPrice'>單價</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtCreateInventoryPrice" name="txtCreateInventoryPrice" type="text" placeholder="請輸入物品單價" class="form-control input-sm"/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtCreateInventoryVendor'>供應廠商</label>
+            <div class="col-lg-8">
+                <select id="txtCreateInventoryVendor" name="txtCreateInventoryVendor" class="form-control input-sm">
+                    <option value="">無</option>
+                    <% for(var i in inventoryVendor) {%>
+                        <option value="<%= inventoryVendor[i].id%>">
+                            <%= inventoryVendor[i].company%>
+                        </option>
+                        <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtCreateInventoryCustodian'>保管人</label>
+            <div class="col-lg-8">
+                <select id="txtCreateInventoryCustodian" name="txtCreateInventoryCustodian" class="form-control input-sm">
+                    <option value="">無</option>
+                    <% for(var i in inventoryCustodian) {%>
+                        <option value="<%= inventoryCustodian[i].id%>">
+                            <%= inventoryCustodian[i].name%>
+                        </option>
+                        <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtCreateInventoryImg'>物品照片</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtCreateInventoryImg" name="txtCreateInventoryImg" type="file" class="form-control input-sm" onchange="readURL(this);"/>
+                <img id="itemImg" class="img-thumbnail" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="creatMsgArea" class="msgArea" style="color: red; font-weight: bold; text-align: left; word-wrap: break-word;"></div>
+    </div>
+    <button id="createCheck" class="btn btn-info" type="submit" form="inventoryCreate">送出</button>
+    <button id="createCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>

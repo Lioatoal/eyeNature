@@ -1,0 +1,152 @@
+<!-- EDIT Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">編輯物料</h4>
+</div>
+<div class="modal-body">
+    <form id="inventoryEdit" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditInventoryName'>品項名稱</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditInventoryName" name="txtEditInventoryName" type="text" placeholder="請輸入品項名稱" class="form-control input-sm"
+                    required="true" value="<%=inventoryEdit.name %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditInventoryType'>類別</label>
+            <div class="col-lg-8">
+                <select id="txtEditInventoryType" name="txtEditInventoryType" class="form-control input-sm">
+                    <% for(var i in inventoryType) {%>
+                        <% if ( inventoryType[i].id == inventoryEdit.type_id) {%>
+                        <option value="<%= inventoryType[i].id%>" selected>
+                            <%= inventoryType[i].name%>
+                        </option>
+                        <% } else { %>
+                        <option value="<%= inventoryType[i].id%>">
+                            <%= inventoryType[i].name%>
+                        </option>
+                        <% } %>
+                    <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditInventoryLocation'>庫存地</label>
+            <div class="col-lg-8">
+                <select id="txtEditInventoryLocation" name="txtEditInventoryLocation" class="form-control input-sm">
+                <% for(var i in inventoryLocation) {%>
+                    <% if(inventoryLocation[i].id == inventoryEdit.location_id) {%>
+                    <option value="<%= inventoryLocation[i].id%>" selected>
+                        <%= inventoryLocation[i].name%>
+                    </option>
+                    <% } else {%>
+                    <option value="<%= inventoryLocation[i].id%>">
+                        <%= inventoryLocation[i].name%>
+                    </option>
+                    <% } %>
+                <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditInventoryComb'>成品</label>
+            <div class="col-lg-8">
+                <select id="txtEditInventoryComb" name="txtEditInventoryComb" class="form-control input-sm">
+                    <option value=''>無</option>
+                    <% for(var i in inventoryComb) {%>
+                        <% if ( inventoryComb[i].id == inventoryEdit.comb_id) { %>
+                            <option value="<%= inventoryComb[i].id%>" selected>
+                                <%= inventoryComb[i].name %>
+                            </option>
+                            <% } else {%>
+                                <option value="<%= inventoryComb[i].id%>">
+                                    <%= inventoryComb[i].name %>
+                                </option>
+                                <% } %>
+                                    <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditInventoryPrice'>單價</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditInventoryPrice" name="txtEditInventoryPrice" type="text" placeholder="請輸入物品單價" class="form-control input-sm"
+                    value="<%=inventoryEdit.price %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditInventoryQuantity'>數量</label>
+            <div class="col-lg-5 has-feedback">
+                <input id="txtEditInventoryQuantity" name="txtEditInventoryQuantity" type="number" class="form-control input-sm" value="<%=inventoryEdit.quantity %>"
+                    disabled/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="col-lg-3">
+                <button id="quantityaddbtn" class="btn" type="button" data-toggle="modal" data-target="#inventoryAddQuantityModal"
+                    title="增加庫存" >
+                    <i class="glyphicon glyphicon-plus"></i>
+                </button>
+                <button id="quantitysubtractbtn" class="btn" type="button" data-toggle="modal" data-target="#inventorySubtractQuantityModal"
+                    title="減少庫存" value="<%=inventoryEdit.id %>">
+                    <i class="glyphicon glyphicon-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditInventoryVendor'>供應廠商</label>
+            <div class="col-lg-8">
+                <select id="txtEditInventoryVendor" name="txtEditInventoryVendor" class="form-control input-sm">
+                    <option value=''>無</option>
+                    <% for(var i in inventoryVendor) {%>
+                        <% if (inventoryVendor[i].id == inventoryEdit.vendor_id) {%>
+                            <option value="<%= inventoryVendor[i].id%>" selected>
+                                <%= inventoryVendor[i].company%>
+                            </option>
+                            <% } else { %>
+                                <option value="<%= inventoryVendor[i].id%>">
+                                    <%= inventoryVendor[i].company%>
+                                </option>
+                                <% } %>
+                                    <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditInventoryCustodian'>保管人</label>
+            <div class="col-lg-8">
+                <select id="txtEditInventoryCustodian" name="txtEditInventoryCustodian" class="form-control input-sm">
+                    <option value=''>無</option>
+                    <% for(var i in inventoryCustodian) {%>
+                        <% if (inventoryCustodian[i].id == inventoryEdit.custodian_id) { %>
+                            <option value="<%= inventoryCustodian[i].id%>" selected>
+                                <%= inventoryCustodian[i].name%>
+                            </option>
+                            <% } else { %>
+                                <option value="<%= inventoryCustodian[i].id%>" selected>
+                                    <%= inventoryCustodian[i].name%>
+                                </option>
+                                <% } %>
+                                    <% } %>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditInventoryImg'>物品照片</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditInventoryImg" name="txtEditInventoryImg" type="file" class="form-control input-sm" onchange="readURL(this);"
+                />
+                <img id="txtEditImg" class="img-thumbnail" src="<%=inventoryEdit.img %>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="creatMsgArea" class="msgArea" style="color: red; font-weight: bold; text-align: left; word-wrap: break-word;"></div>
+    </div>
+    <button id="createCheck" class="btn btn-info" type="submit" form="inventoryEdit">送出</button>
+    <button id="createCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>

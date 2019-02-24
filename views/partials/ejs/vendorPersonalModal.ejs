@@ -1,0 +1,173 @@
+<!-- Personal Modal -->
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">個人資料</h4>
+</div>
+<div class="modal-body">
+    <form id="vendorPersonalEdit" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalAcctEmail'>帳號</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalAcctEmail" name="txtEditPersonalAcctEmail" type="text" placeholder="請輸入姓名" class="form-control input-sm"
+                    required="true" value="<%=acct.email%>" disabled/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalAcctName'>帳號名稱</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalAcctName" name="txtEditPersonalAcctName" type="text" placeholder="請輸入姓名" class="form-control input-sm"
+                    required="true" value="<%=acct.name%>" disabled/>
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalCompany'>廠商名稱</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalCompany" name="txtEditPersonalCompany" type="text" placeholder="請輸入廠商名稱(公司)" class="form-control input-sm"
+                    required="true" value="<%= vendor.company%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for="txtEditPersonalType">廠商類型</label>
+            <div class="col-lg-8">
+                <select id="txtEditPersonalType" name="txtEditPersonalType" class="form-control input-sm" disabled>
+                    <option value="<%= vendor.type_id%>" selected>
+                        <%= vendorType[vendor.type_id-1].type%>
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalName'>連絡人姓名</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalName" name="txtEditPersonalName" type="text" placeholder="請輸入連絡人姓名" class="form-control input-sm"
+                    required="true" value="<%= vendor.name%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalTitle'>連絡人職稱</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalTitle" name="txtEditPersonalTitle" type="text" placeholder="連絡人職稱" class="form-control input-sm"
+                    value="<%= vendor.title%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalAgent'>代理人姓名</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalAgent" name="txtEditPersonalAgent" type="text" placeholder="請輸入代理人姓名" class="form-control input-sm"
+                    value="<%= vendor.jobagent%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalPhone'>市內電話</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalPhone" name="txtEditPersonalPhone" type="tel" placeholder="請輸入廠商市內電話" class="form-control input-sm"
+                    value="<%= vendor.phone%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalExtension'>分機</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalExtension" name="txtEditPersonalExtension" type="tel" placeholder="請輸入廠商分機號碼" class="form-control input-sm"
+                    value="<%= vendor.extension%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalCellphone'>手機號碼</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalCellphone" name="txtEditPersonalCellphone" type="tel" placeholder="請輸入廠商/連絡人手機號碼" class="form-control input-sm"
+                    required="true" value="<%= vendor.cellphone%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalFax'>傳真號碼</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalFax" name="txtEditPersonalFax" type="tel" placeholder="請輸入廠商傳真號碼" class="form-control input-sm"
+                    value="<%= vendor.fax%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalFacebook'>Facebook</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalFacebook" name="txtEditPersonalFacebook" type="text" placeholder="請輸入廠商/連絡人Facebook" class="form-control input-sm"
+                    value="<%= vendor.facebook%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalEmail'>E-Mail</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalEmail" name="txtEditPersonalEmail" type="email" placeholder="請輸入廠商/連絡人E-mail" class="form-control input-sm"
+                    value="<%= vendor.email%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalLine'>Line</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalLine" name="txtEditPersonalLine" type="text" placeholder="請輸入廠商/連絡人Line" class="form-control input-sm"
+                    value="<%= vendor.line%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalWechat'>WeChat</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalWechat" name="txtEditPersonalWechat" type="text" placeholder="請輸入廠商/連絡人WeChat" class="form-control input-sm"
+                    value="<%= vendor.wechat%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalAddr'>地址</label>
+            <div class="col-lg-8">
+                <input id="txtEditPersonalAddr" name="txtEditPersonalAddr" type="text" placeholder="請輸入廠商地址" class="form-control input-sm"
+                    value="<%= vendor.address%>" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalBankcode'>銀行代碼</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalBankcode" name="txtEditPersonalBankcode" type="text" placeholder="請輸入廠商銀行代碼" class="form-control input-sm"
+                    required="true" value="<%= vendor.bankcode%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalBankacct'>銀行帳戶</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalBankacct" name="txtEditPersonalBankacct" type="text" placeholder="請輸入廠商銀行帳戶" class="form-control input-sm"
+                    required="true" value="<%= vendor.bankaccount%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditPersonalBankname'>銀行帳戶戶名</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditPersonalBankname" name="txtEditPersonalBankname" type="text" placeholder="請輸入廠商銀行帳戶戶名" class="form-control input-sm"
+                    required="true" value="<%= vendor.bankname%>" />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3" for='txtEditPersonalIswork'>合作中</label>
+            <div class="col-lg-8 checkbox">
+                <label>
+                    <%if (vendor.iswork){ %>
+                        <input id="txtEditPersonalIswork" name="txtEditPersonalIswork" type="checkbox" value="1" checked disabled/>合作中
+                        <% } else { %>
+                            <input id="txtEditPersonalIswork" name="txtEditPersonalIswork" type="checkbox" value="0" disabled/>合作中
+                            <%}%>
+                </label>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="editMsgArea" class="msgArea" style=" font-weight: bold; text-align: left; word-wrap: break-word;"></div>
+    </div>
+    <button id="vendorPersonalCheck" class="btn btn-info" type="submit" form="vendorPersonalEdit">送出</button>
+    <button id="vendorPersonalCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>

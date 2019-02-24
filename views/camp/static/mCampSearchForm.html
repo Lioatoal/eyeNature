@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Search
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form id="inquiry" class="form-horizontal" role="form">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="txtSearchCampName">名稱:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="txtSearchCampName" name="txtSearchCampName">
+                        </div>
+                        <label class="control-label col-lg-2" for="txtSearchCampTypeId">類別:</label>
+                        <div class="col-lg-4 ">
+                            <select id="txtSearchCampTypeId" name="txtSearchCampTypeId" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true ">
+                                <option value="1">夏令營</option>
+                                <option value="2">冬令營</option>
+                                <option value="3">平日課</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group ">
+                        <label class="control-label col-lg-2" for="txtSearchCampDayNumber">天數:</label>
+                        <div class="col-lg-4">
+                            <select id="txtSearchCampDayNumber" name="txtSearchCampDayNumber" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true">
+                                <option value="1">一天</option>
+                                <option value="2">兩天</option>
+                                <option value="3">三天</option>
+                                <option value="4">四天</option>
+                                <option value="5">五天</option>
+                                <option value="6">六天</option>
+                                <option value="7">七天</option>
+                                <option value="8">八天</option>
+                            </select>
+                        </div>
+                        <label class="control-label col-lg-2" for="txtSearchCampOutbound">是否外出:</label>
+                        <div class="col-lg-4 ">
+                            <select id="txtSearchCampOutbound" name="txtSearchCampOutbound" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true ">
+                                <option value="1">外  出</option>
+                                <option value="0">室內課</option>
+                            </select>
+                        </div>        
+                    </div>
+                    <div class="row form-group ">
+                        <label class="control-label col-lg-2" for="txtSearchCampIswork">營運中:</label>
+                        <div class="col-lg-4">
+                            <select id="txtSearchCampIswork" name="txtSearchCampIswork" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true">
+                                <option value="1">營運中</option>
+                                <option value="0">未營運</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                            <div class="col-lg-offset-10 col-lg-2">
+                                <button id="searchCampBtn" type="submit" class="btn btn-info btn-block">送出</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

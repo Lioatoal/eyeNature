@@ -1,0 +1,32 @@
+.userImage{
+    width: 20px;
+    height: 20px;
+}
+
+#Header {
+    margin-top: 15px;
+}
+
+label.required:before {
+	color: #E92A34;
+	content: "*";
+}
+.modal .modal-header, .modal .modal-footer {
+	background-color: #ccc;
+	padding: 10px 15px;
+}
+.table>tbody>tr>td{
+    vertical-align: middle !important;
+}
+.table>thead>tr>th{
+    vertical-align: middle !important;   
+}
+
+.inputfile {
+    width: 0.1px; 
+    height: 0.1px; 
+    opacity: 0; 
+    overflow: hidden; 
+    position: absolute; 
+    z-index: -1;
+}

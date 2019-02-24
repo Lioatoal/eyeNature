@@ -1,0 +1,49 @@
+<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">新增權限</h4>
+    </div>
+    <div class="modal-body">
+        <form id="campCreate" class="form-horizontal">
+            <div class="row form-group">
+                <label class="control-label col-lg-3 required" for="txtCreateCampName">名稱:</label>
+                <div class="col-lg-8 has-feedback">
+                    <input id="txtCreateCampName" name="txtCreateCampName" type="text" class="form-control input-sm" placeholder="請輸入營隊名稱"
+                        required="true" />
+                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3 required">天數:</label>
+                <div class="col-lg-8">
+                    <select id="txtCreateCampDayNumber" name="txtCreateCampDayNumber" class="form-control input-sm">
+                        <option value="1">一天</option>
+                        <option value="2">兩天</option>
+                        <option value="3">三天</option>
+                        <option value="4">四天</option>
+                        <option value="5">五天</option>
+                        <option value="6">六天</option>
+                        <option value="7">七天</option>
+                        <option value="8">八天</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtCreateCampOutbound'>外出</label>
+                <div class="col-lg-3 checkbox">
+                    <label>
+                        <input name="txtCreateCampOutbound" type="radio" value="0" checked/>外出</label>
+                </div>
+                <div class="col-lg-3 checkbox">
+                    <label>
+                        <input name="txtCreateCampOutbound" type="radio" value="1" />室內課</label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="col-lg-8">
+            <div id="createMsgArea" class="msgArea" style="text-align: left"></div>
+        </div>
+        <button id="createSubmit" class="btn btn-info" type="submit">送出</button>
+        <button id="createCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+    </div>

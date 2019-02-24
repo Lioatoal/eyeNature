@@ -1,0 +1,61 @@
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.pop-layer1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    overflow: auto;
+    background: rgba(0,0,0,.5);
+    overflow: hidden;
+}
+
+.pop-layer2 {
+    display: table;
+    margin: auto;
+    height: 100%;
+}
+
+.pop-layer3 {
+    background: #fafafa;
+    display: table-cell;
+    /*text-align: center;*/
+}
+
+.pop-layer4 {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    flex: 1 1 0%;
+}
+
+.pop-layer5 {
+    height: 100vh;
+    width: 1000px;
+    position: relative;
+}
+
+.pop-layer6-body {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: scroll;
+    margin-right: -17px;
+    margin-bottom: -17px;
+}

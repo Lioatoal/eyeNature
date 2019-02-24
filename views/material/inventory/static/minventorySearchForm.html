@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Search
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form id="inquiry" class="form-horizontal" role="form">
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="txtSearchTypeName">類別:</label>
+                        <div class="col-lg-4">
+                            <select id="txtSearchTypeName" name="txtSearchTypeName" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true">
+                            <% if(t_names.length){ %>
+                                <% for(var i=0; i<t_names.length; i++) {%>
+                                <option value="<%= t_names[i].id%>">
+                                    <%= t_names[i].name%>
+                                </option>
+                                <% } %>
+                            <% } %>
+                            </select>
+                        </div>
+                        <label class="control-label col-lg-2" for="txtSearchName">名稱:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="txtSearchName" name="txtSearchName">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="txtSearchCompany">廠商:</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="txtSearchCompany" name="txtSearchCompany">
+                        </div>
+                        <label class="control-label col-lg-2" for="txtSearchLocationName">庫存地:</label>
+                        <div class="col-lg-4">
+                            <select id="txtSearchLocationName" name="txtSearchLocationName" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true">
+                            <% if(l_names.length){ %>
+                                <% for(var i=0; i<l_names.length; i++) {%>
+                                <option value="<%= l_names[i].id%>">
+                                    <%= l_names[i].name%>
+                                </option>
+                                <% } %>
+                            <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="control-label col-lg-2" for="txtSearchCombName">成品:</label>
+                        <div class="col-lg-4">
+                            <select id="txtSearchCombName" name="txtSearchCombName" title="請選擇" class="form-control selectpicker" multiple data-actions-box="true">
+                            <% if(c_names.length){ %>
+                                <% for(var i=0; i<c_names.length; i++) {%>
+                                <option value="<%= c_names[i].id%>">
+                                    <%= c_names[i].name%>
+                                </option>
+                                <% } %>
+                            <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-lg-offset-10 col-lg-2">
+                            <button id="searchPermBtn" type="submit" class="btn btn-info btn-block">送出</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

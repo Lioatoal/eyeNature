@@ -1,0 +1,51 @@
+<!--subtract quantity Module-->
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">減少物料庫存</h4>
+    </div>
+    <div class="modal-body">
+        <form id="subtractQuantity" class="form-horizontal" role="form">
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtInventoryName'>品項名稱：</label>
+                <div class="col-lg-8 has-feedback">
+                    <input id="txtInventoryName" name="txtInventoryName" type="text" class="form-control input-sm" value="<%=inventory.name %>"
+                        disabled/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtInventoryLocation'>庫存地：</label>
+                <div class="col-lg-8 has-feedback">
+                    <select id="txtEditInventoryLocation" name="txtEditInventoryLocation" class="form-control input-sm" disabled>
+                        <option value="<%= inventory.location_id%>" selected>
+                            <%= inventory.l_name%>
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtInventoryQuantity'>庫存數量：</label>
+                <div class="col-lg-8 has-feedback">
+                    <input id="txtInventoryQuantity" name="txtInventoryQuantity" type="number" class="form-control input-sm" value="<%=inventory.quantity %>"
+                        disabled/>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSubtractQuantity'>減少數量：</label>
+                <div class="col-lg-8">
+                    <input id="txtSubtractQuantity" name="txtSubtractQuantity" type="number" class="form-control input-sm" min="0" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="control-label col-lg-3" for='txtSubtractRemark'>異動備註：</label>
+                <div class="col-lg-8">
+                    <textarea id="txtSubtractRemark" name="txtSubtractRemark" class="form-control input-sm" rows="5"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button id="subtractSubmit" class="btn btn-info" type="submit" form="subtractQuantity">確認</button>
+        <button id="subtractCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+    </div>
+</div>

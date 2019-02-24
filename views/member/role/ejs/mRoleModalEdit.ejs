@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">角色編輯</h4>
+</div>
+<div class="modal-body">
+    <form id="roleEdit" class="form-horizontal">
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditRoleName'>角色名稱</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditRoleName" name="txtEditRoleName" type="text" class="form-control input-sm" required="true" value="<%= role.r_name%>"
+                />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="control-label col-lg-3 required" for='txtEditRoleDescr'>角色描述</label>
+            <div class="col-lg-8 has-feedback">
+                <input id="txtEditRoleDescr" name="txtEditRoleDescr" type="text" class="form-control input-sm" required="true" value="<%= role.r_descr%>"
+                />
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <div class="col-lg-8">
+        <div id="editMsgArea" class="msgArea" style="text-align: left;"></div>
+    </div>
+    <button id="editCheck" class="btn btn-info" type="submit" form="roleEdit">送出</button>
+    <button id="editCancel" class="btn btn-default" type="button" data-dismiss="modal">取消</button>
+</div>
